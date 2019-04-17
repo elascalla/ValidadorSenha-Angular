@@ -1,0 +1,26 @@
+<p-panel header="Validador">
+  <div class="p-grid">
+    <div class="p-col-2">Senha</div>
+    <div class="p-col-10">
+        <input type="text" pInputText [(ngModel)]="senha.senha" (keyup)="validarSenha()" />
+    </div> 
+    <div class="p-col-2">Pontuação</div>
+    <div class="p-col-10">
+        <input pInputText type="text" [readonly]="true" [(ngModel)]="senha.pontuacao" [ngClass]="[senha.complexidade == 'Muito Fraca' ? 'classRed' : '', 
+                                                                                                  senha.complexidade == 'Fraca' ? 'classYellow' : '',
+                                                                                                  senha.complexidade == 'Normal' ? 'classYellowGreen' : '',
+                                                                                                  senha.complexidade == 'Forte' ? 'classGreen' : '',
+                                                                                                  senha.complexidade == 'Muito Forte' ? 'classBlue' : '']"/>
+    </div>
+
+    <div class="p-col-2">Complexidade</div>
+    <div class="p-col-10">
+      <input pInputText type="text" [readonly]="true" [(ngModel)]="senha.complexidade" />
+    </div>
+  </div>
+</p-panel>
+
+<p-toast></p-toast>
+
+<!-- <input type="text" [value]="password">
+<buttom (click)="validarSenha()">Validar</buttom> -->
